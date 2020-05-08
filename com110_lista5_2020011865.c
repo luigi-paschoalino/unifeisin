@@ -7,7 +7,9 @@ int main()
 {
 	//"o" é opção, "lo" é lado maior, "lh" é lado menor, "l" é para figuras com mesmo lado
 	//a=área e p=perímetro
-	int o,lo,lh,l;
+	//Em todas as figuras, eu fiz um limite para o tamanho delas, sem afetar os cálculos de área e perímetro
+	//Definitivamente não sei fazer o contorno das figuras, vai assim mesmo
+	int o,lo,lh,l,e,x,y;
 	float a,p;
 	setlocale(LC_ALL, "Portuguese");
 	//Programa todo em do while, para printar pelo menos uma vez o menu
@@ -25,7 +27,7 @@ int main()
 		printf("\n## 2. Retângulo                                     ##");
 		printf("\n## 3. Triângulo equilátero                          ##");
 		printf("\n## 4. Triângulo retângulo (catetos iguais)          ##");
-		printf("\n## 5. Outra                                         ##");
+		printf("\n## 5. Trapézio retângulo                            ##");
 		printf("\n## 6. Sair                                          ##");
 		printf("\n##                                                  ##");
 		printf("\n######################################################");
@@ -45,6 +47,15 @@ int main()
 			p=l*4;
 			printf("\nÁrea: %.2f",a);
 			printf("\nPerímetro: %.2f",p);
+			printf("\n");
+			if(l>=20)
+			l=20;
+			for(y=0;y<l;y++)
+			{
+				for(x=0;x<l;x++)
+					printf(" @");
+				printf("\n");
+			}
 		}
 		else if(o==2)
 		{
@@ -61,6 +72,18 @@ int main()
 			p=(2*lh)+(2*lo);
 			printf("\nÁrea: %.2f",a);
 			printf("\nPerímetro: %.2f",p);
+			printf("\n");
+			//Limites para o tamanho da figura
+			if(lo>=20)
+				lh=20;
+			if(lh>=10)
+				lo=10;
+			for(y=0;y<lo;y++)
+			{
+				for(x=0;x<lh;x++)
+					printf(" @");
+				printf("\n");
+			}
 		}
 		else if(o==3)
 		{
@@ -75,6 +98,17 @@ int main()
 			p=l*3;
 			printf("\nÁrea: %.2f",a);
 			printf("\nPerímetro: %.2f",p);
+			printf("\n");
+			if(l>15)
+				l=15;
+			for(y=0;y<l;y++)
+			{					
+				for(e=0;e<(l-y);e++)
+					printf(" ");
+				for(x=0;x<=y;x++)
+					printf(" @");
+				printf("\n");
+			}
 		}
 		else if(o==4)
 		{
@@ -88,12 +122,41 @@ int main()
 			p=(2*l)+hypot(l,l);
 			printf("\nÁrea: %.2f",a);
 			printf("\nPerímetro: %.2f",p);
+			printf("\n");
+			if(l>15)
+				l=15;
+			for(y=0;y<l;y++)
+			{
+				for(x=0;x<=y;x++)
+					printf(" @");
+				printf("\n");
+			}
 		}
 		else if(o==5)
 		{
 			printf("\n==================================================");
-			printf("\n OUTRA");
+			printf("\n TRAPÉZIO RETÂNGULO");
 			printf("\n==================================================");
+			printf("\nDigite a medida da base menor: ");
+			scanf("%d",&lh);
+			printf("\nDigite a medida da base maior: ");
+			scanf("%d",&lo);
+			printf("\n");
+			a=((lh+lo)*(lo-lh))/2;
+			p=lh+lo+(lo-lh)+hypot(lo-lh,lo-lh);
+			printf("\nÁrea: %.2f",a);
+			printf("\nPerímetro: %.2f",p);
+			printf("\n");
+			if(lh>15)
+				lh=15;
+			if(lo>20)
+				lo=20;
+			for(y=lh;y<=lo;y++)
+			{
+				for(x=0;x<y;x++)
+					printf(" @");
+				printf("\n");
+			}
 		}
 	//Tudo isso enquanto "o" for diferente de 6
 	}while(o!=6);
