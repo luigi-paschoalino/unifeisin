@@ -5,7 +5,7 @@
 
 int main()
 {
-	//"o" é opção, "lo" é lado maior, "lh" é lado menor, "l" é para figuras com mesmo lado
+	//"o" é opção, "lo" é lado maior, "lh" é lado menor, "l" é para figuras com mesmo lado, "e" é o espaço para o triângulo equilátero ficar correto, x e y são valores de referência para o desenho
 	//a=área e p=perímetro
 	//Em todas as figuras, eu fiz um limite para o tamanho delas, sem afetar os cálculos de área e perímetro
 	//Definitivamente não sei fazer o contorno das figuras, vai assim mesmo
